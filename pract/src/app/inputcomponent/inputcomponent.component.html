@@ -1,0 +1,23 @@
+<div class="container">
+<h1>ngIf</h1>
+<p>The following text will be shown only if condition is true!.This explains the working of ngIf</p>
+<input type = 'number' #number (keyup)="0">
+<p *ngIf="number.value>10">A ship in the harbour is save but that is not what the ships are built for!</p>
+<h2>ngFor</h2>
+<ul *ngFor = "let x of array">
+    <li>{{x}}</li>
+</ul>
+<h1>ngSwitch</h1>
+Enter  red,green,blue:
+<input type = 'text' #color (keyup)="0">
+<div [ngSwitch]="color.value">
+    <ng-template ngSwitchCase="red"><span style="color:red">The color is red</span></ng-template>
+    <ng-template ngSwitchCase="green"><span style="color:green">The color is green</span></ng-template>
+    <ng-template ngSwitchCase="blue"><span style="color:blue">The color is blue</span></ng-template>
+    <ng-template ngSwitchDefault><span>The color is not defined</span></ng-template>
+</div>
+<div>
+    recieved params:{{recieved}}
+    recieve optional:{{optional}}
+</div>
+</div>

@@ -1,0 +1,11 @@
+<div>Please type some message:</div>
+<br><br>
+<textarea rows="10" cols="20" #msg></textarea>
+<button (click)="onSubmit(msg.value)">Submit</button>
+<br><br>
+Please enter two digits:
+<input type="number" #num1>
+<input type="number" #num2>
+<button (click)="onAdd(num1.value,num2.value)">Add</button>
+<button (click)="onMultiply(num1.value,num2.value)">Multiply</button>
+<p>Result of Multiply:{{result}}</p>

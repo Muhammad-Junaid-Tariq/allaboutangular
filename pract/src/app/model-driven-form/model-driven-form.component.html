@@ -1,0 +1,29 @@
+<div class="container">
+<h2>Sign Up Form</h2>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="mail">Mail</label>
+    <input formControlName="email" type="text" required/>
+    <span class="validation-error" *ngIf="myForm.controls['email'].hasError('required')">Not Valid</span> 
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input formControlName="password" type="password"/>
+    <span class="validation-error" *ngIf="myForm.controls['password'].hasError('required')">Not Valid</span>
+    <span class="validation-error" *ngIf="myForm.controls['password'].hasError('minlength')">Not Valid</span>
+  </div>
+   <div>
+    <label for="confpassword">Confirm Password</label>
+    <input formControlName="confpassword" type="password"/>
+    <!--<span class="validation-error" *ngIf="myForm.controls['confpassword'].hasError('required')">Not Valid</span> -->
+    <span class="validation-error" *ngIf="myForm.controls['confpassword'].value !== myForm.controls['password'].value">Not Valid</span> 
+
+  </div>
+   <div>
+     <button type="submit" [disabled]="!myForm.valid||myForm.controls['confpassword'].value !== myForm.controls['password'].value">Submit</button> 
+  </div>
+</form>
+<h2>You Submitted</h2>
+<div>Mail:{{user.email}}</div>
+<div>Password:{{user.password}}</div>
+</div>

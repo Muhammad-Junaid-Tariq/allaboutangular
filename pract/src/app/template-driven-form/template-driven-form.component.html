@@ -1,0 +1,27 @@
+<div class="container">
+<h2>Sign Up Form</h2>
+<form (ngSubmit)="onSubmit(fom)" #fom="ngForm">
+  <p>{{fom.value | json}}</p>
+  <div>
+    <label for="mail">Mail</label>
+    <input type="text" name="mail" [(ngModel)]="user.email" #email="ngModel" required/>
+    <span class="validation-error" *ngIf="!email.valid">Not Valid</span> 
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required/>
+    <span class="validation-error" *ngIf="!password.valid">Not Valid</span> 
+  </div>
+   <div>
+    <label for="confpassword">Confirm Password</label>
+    <input type="password" name="confpassword" ngModel #confpassword="ngModel" required/>
+    <span class="validation-error" *ngIf="confpassword.value !== password.value">Password do not match!</span> 
+  </div>
+   <div>
+     <button type="submit" [disabled]="!fom.valid || password.value !== confpassword.value">Submit</button> 
+  </div>
+</form>
+<h2>You Submitted</h2>
+<div>Mail:{{user.email}}</div>
+<div>Password:{{user.password}}</div>
+</div>

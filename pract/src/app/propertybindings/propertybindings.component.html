@@ -1,0 +1,12 @@
+<div class="container">
+<h2>Property Binding</h2>
+<br>
+<h4>Please input your name!</h4>
+<input type="text" [(ngModel)]="name">
+<br>
+<br>
+Your name is:{{name}}
+<br>
+<p>My hobbies are:{{hobbies}}</p>
+<app-secondpropertbind [myName]="name" [myAge]="age" (hobbieschanged)='hobbies = $event'></app-secondpropertbind>
+</div>
